@@ -49,6 +49,40 @@ namespace Part1
             Console.WriteLine(idOnlyStudent.ToString());
 
 
+            //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+            // TESTING HASHING METHODS (Equals, GetHashCode, ==, !=)
+
+            Console.WriteLine("\n=== Testing Hashing Methods ===");
+
+            // Create two student objects with different data but the SAME StudentID
+            Student studentA = new Student(55555, "Diploma of IT", DateTime.Now, new Enrollment(), "Morteza", "morteza@email.com", 123456);
+            Student studentB = new Student(55555, "Cyber Security", DateTime.Now, new Enrollment(), "John", "john@email.com", 654321);
+
+            // Create a third student with a DIFF StudentID
+            Student studentC = new Student(99999, "Networking", DateTime.Now, new Enrollment(), "Sarah", "sarah@email.com", 111111);
+
+            // Test '==' operator (Should return True because IDs are 55555)
+            Console.WriteLine($"studentA == studentB: {studentA == studentB}");
+
+            // Test 'Equals' method (Should return True)
+            Console.WriteLine($"studentA.Equals(studentB): {studentA.Equals(studentB)}");
+
+            // Test '==' operator (Should return False because 55555 is not equal to 99999)
+            Console.WriteLine($"studentA == studentC: {studentA == studentC}");
+
+            // Test '!=' operator (Should return True because 55555 is not equal to 99999)
+            Console.WriteLine($"studentA != studentC: {studentA != studentC}");
+
+
+
+            // Test GetHashCode method (studentA and studentB should output the exact same integer)
+            Console.WriteLine($"\nstudentA HashCode: {studentA.GetHashCode()}");
+            Console.WriteLine($"studentB HashCode: {studentB.GetHashCode()}");
+            Console.WriteLine($"studentC HashCode: {studentC.GetHashCode()}");
+
+
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
         }
